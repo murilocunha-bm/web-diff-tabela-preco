@@ -3,15 +3,44 @@
 
 {% block content %}
 
-    <h1>Olá, Flask com Application Factory!</h1>
-    
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-success">Success</button>
-    <button type="button" class="btn btn-danger">Danger</button>
-    <button type="button" class="btn btn-warning">Warning</button>
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-light">Light</button>
-    <button type="button" class="btn btn-dark">Dark</button>    
+    <h4>Diferenças de Hoje</h4>
+    <hr>
+
+    <form id="formPlanilha" action="/diferencas" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Planilha de preços nova</label>
+            <div class="input-group">
+                <input class="form-control" type="file" id="formFile" name="file" accept=".xlsx">
+                <button class="btn btn-outline-secondary" type="reset">Apagar</button>
+            </div>
+        </div>
+
+        <!-- Botão que dispara popover se nenhum arquivo selecionado -->
+        <button type="submit" class="btn btn-primary" id="btnDiff" data-bs-toggle="popover" 
+                data-bs-trigger="manual" data-bs-content="⚠️ Nenhum arquivo selecionado!">
+            Encontrar Diferenças
+        </button>
+    </form>
+
+    <!-- Bootstrap JS e Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        const btn = document.getElementById("btnDiff");
+        const inputFile = document.getElementById("formFile");
+        const popover = new bootstrap.Popover(btn);
+
+        btn.addEventListener(
+            "click", function(event) {
+                if (!inputFile.value) {
+                    event.preventDefault();  // cancela o envio do form
+                    popover.show();          // mostra popover
+                } else {
+                    popover.hide();          // esconde popover se arquivo selecionado
+                }
+            }
+        );
+    </script>
 
 {% endblock content %}

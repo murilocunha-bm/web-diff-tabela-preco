@@ -1,12 +1,12 @@
 html, body {
-height: 100%; /* ocupa a tela toda */
+    height: 100%; /* ocupa a tela toda */
 }
 
 body {
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
-flex: 1; /* ocupa o espaço livre */
+    flex: 1; /* ocupa o espaço livre */
 }

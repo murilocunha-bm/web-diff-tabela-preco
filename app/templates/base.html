@@ -30,7 +30,8 @@
     </head>
 
     <body>
-        <div class="container h-100">
+        <div class="container h-100">  
+            <!-- style=" background-color: #2e2e2e"> -->
         
             <!-- Your page content -->
             {% block content %}
@@ -43,29 +44,35 @@
     </body>
 
     <!-- Footer -->
+
     <footer class="footer mt-3 mb-3">
         <div class="container">
-            <div class="d-flex flex-wrap justify-content-between">
-                <div class="d-flex flex-column justify-content-start">
-                    <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+            <div class="d-flex flex-row justify-content-between align-items-center">
+                <!-- Esquerda -->
+                <div class="d-flex flex-column text-center">
+                    <p class="mb-0">&copy; 2025 Barra Mansa Alimentos</p>
+                    <span class="mb-0" style="font-size: 12px;">.Controladoria de Negócios.</span>
                 </div>
-                <div class="d-flex flex-column justify-content-end align-items-right">
-                    <div class="d-flex flex-column">
+                <!-- Direita -->
+                <div class="d-flex flex-column align-items-end">
+                    <!-- Ícones sociais -->
+                    <div class="d-flex justify-content-between w-100">
                         <a href="#" class="fab fa-facebook-f" title="Facebook"></a>
                         <a href="#" class="fab fa-twitter" title="Twitter"></a>
                         <a href="#" class="fab fa-linkedin-in" title="LinkedIn"></a>
                         <a href="#" class="fab fa-instagram" title="Instagram"></a>
                     </div>
-                    <div class="d-flex flex-column align-items-right">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Contact Us</a>
+
+                    <!-- Links extras (abaixo) -->
+                    <div class="d-flex gap-3">
+                        <a href="#">Licença</a>
+                        <a href="#">Contato</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     {% block footer_ %}
     {% endblock footer_ %}
     
