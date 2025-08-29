@@ -31,10 +31,12 @@ def diferencas():
     df_novo = pd.read_excel(file)
 
     # planilha de referência (poderia vir do banco ou de outro arquivo)
-    df_ref = pd.DataFrame({
-        "Produto": ["Arroz", "Feijão", "Macarrão", "Óleo"],
-        "Preço": [10.0, 7.5, 6.0, 8.0]
-    })
+    df_ref = pd.DataFrame(
+        {
+            "Produto": ["Arroz", "Feijão", "Macarrão", "Óleo"],
+            "Preço": [10.0, 7.5, 6.0, 8.0]
+        }
+    )
 
     # junta pelo nome do produto
     df_merge = df_ref.merge(df_novo, on="Produto", suffixes=("_ref", "_novo"))
@@ -43,10 +45,11 @@ def diferencas():
     df_diff = df_merge[df_merge["Preço_ref"] != df_merge["Preço_novo"]]
 
     if df_diff.empty:
-        return "Nenhuma diferença encontrada ✅"
+        resultado = "Nenhuma diferença encontrada ✅"
+    else:
+        resultado = df_diff.to_html(index=False, classes="table table-striped")
 
-    # converte resultado em HTML para exibir no navegador
-    return df_diff.to_html(index=False, classes="table table-striped")
+    return render_template("/tab_preco/index.html", resultado=resultado)
 
 
 # @main_bp.route("/nova")
