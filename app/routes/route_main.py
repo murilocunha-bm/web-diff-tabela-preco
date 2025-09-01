@@ -1,5 +1,8 @@
+from datetime import datetime
 from flask import Blueprint, render_template, request
-import pandas as pd
+from os import path, getenv
+#
+from app.models.diferenca_preco.dif_df import main
 
 
 main_bp = Blueprint(
@@ -13,43 +16,43 @@ main_bp = Blueprint(
 
 @main_bp.route("/")
 def home():
-    return render_template("/tab_preco/index.html")
+    return render_template("/tab_preco/index.html", resultado=None)
 
 
 @main_bp.route("/diferencas", methods=["POST"])
 def diferencas():
-    if "file" not in request.files or request.files["file"].filename == "":
-        return "⚠️ Nenhum arquivo selecionado. Por favor, escolha uma planilha!"    
-    
-    # pega o arquivo enviado
     file = request.files["file"]
+    
+    pasta_xls = getenv('PASTA_XLS')
+    resultado = main(path.join(pasta_xls, file.filename))
 
-    if not file:
-        return "Nenhum arquivo enviado!"
-
-    # carrega a planilha enviada
-    df_novo = pd.read_excel(file)
-
-    # planilha de referência (poderia vir do banco ou de outro arquivo)
-    df_ref = pd.DataFrame(
-        {
-            "Produto": ["Arroz", "Feijão", "Macarrão", "Óleo"],
-            "Preço": [10.0, 7.5, 6.0, 8.0]
-        }
-    )
-
-    # junta pelo nome do produto
-    df_merge = df_ref.merge(df_novo, on="Produto", suffixes=("_ref", "_novo"))
-
-    # encontra diferenças de preço
-    df_diff = df_merge[df_merge["Preço_ref"] != df_merge["Preço_novo"]]
-
-    if df_diff.empty:
-        resultado = "Nenhuma diferença encontrada ✅"
+    if resultado.empty:
+        resultado = None
     else:
-        resultado = df_diff.to_html(index=False, classes="table table-striped")
-
+        # resultado = df_diff.to_html(index=False, classes="table table-striped")
+        resultado = resultado.to_dict(orient="records")
+    
     return render_template("/tab_preco/index.html", resultado=resultado)
+    
+    # # pega o arquivo enviado
+    # file = request.files["file"]
+
+    # # carrega a planilha enviada
+    # df_novo = pd.read_excel(file)
+
+    # # planilha de referência (poderia vir do banco ou de outro arquivo)
+    # df_ref = pd.DataFrame(
+    #     {
+    #         "Produto": ["Arroz", "Feijão", "Macarrão", "Óleo"],
+    #         "Preço": [10.0, 7.5, 6.0, 8.0]
+    #     }
+    # )
+
+    # # junta pelo nome do produto
+    # df_merge = df_ref.merge(df_novo, on="Produto", suffixes=("_ref", "_novo"))
+
+    # # encontra diferenças de preço
+    # df_diff = df_merge[df_merge["Preço_ref"] != df_merge["Preço_novo"]]
 
 
 # @main_bp.route("/nova")
