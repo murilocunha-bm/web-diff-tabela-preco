@@ -8,6 +8,7 @@ from os import getenv
 #
 # biblioteca propria do sistema
 from app.models.bd.sqlserver_conn import SQLServerConnection
+from app.controllers.loggers import logger
 
 
 def pegar_precos_vigentes_bd(sql_tabela_precos, nome_xlsx_destino):
@@ -26,7 +27,7 @@ def pegar_precos_vigentes_bd(sql_tabela_precos, nome_xlsx_destino):
     conn = bd.conectar_sqlalchemy()
     
     if conn:
-        print(f"[ {datetime.now().strftime('%d/%m/%Y %H:%M:%S')} ] Montando tabela precos vigentes...")
+        logger.info(f'Montando tabela precos vigentes...')
     
         # Fazer SELECT
         df = pd.read_sql(sql_tabela_precos, conn)
@@ -52,18 +53,19 @@ def pegar_precos_vigentes_bd(sql_tabela_precos, nome_xlsx_destino):
                 'ValorToleranciaParaMais': float,
             }
         )
+        # df['ValidadeInicial'] = df['ValidadeInicial'].dt.date
         # print(df.head())  # Mostra as primeiras linhas da tabela
         
         if not df.empty:
             validade_inicial = df.iloc[0, 3]    # primeira linha e coluna ValidadeInicial
-            print(f"[ {datetime.now().strftime('%d/%m/%Y %H:%M:%S')} ] 👉🏻 Validade inicial da tabela {validade_inicial}")
+            logger.info(f'👉🏻 Validade inicial da tabela {datetime.strftime(validade_inicial, '%d/%m/%Y')}')
             df.to_excel(nome_xlsx_destino, index=False)
-            print(f"[ {datetime.now().strftime('%d/%m/%Y %H:%M:%S')} ] 📂 Preco vigente gravado em: {nome_xlsx_destino}")
+            logger.info(f'📂 Preco vigente gravado em: {nome_xlsx_destino}')
         else:
-            print(f"[ {datetime.now().strftime('%d/%m/%Y %H:%M:%S')} ] ❌ Nenhum registro de preços anterior encontrado. Verifique a data inicial da tabela")
+            logger.info(f'❌ Nenhum registro de preços anterior encontrado. Verifique a data inicial da tabela')
 
     else:
-        print(f"[ {datetime.now().strftime('%d/%m/%Y %H:%M:%S')} ] 💀 - Erro ao conectar ao banco de dados.")
+        logger.info(f'💀 - Erro ao conectar ao banco de dados')
         df = pd.DataFrame()
 
     bd.fechar_conexao()

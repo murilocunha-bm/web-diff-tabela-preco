@@ -1,5 +1,8 @@
 .env
 config.py
+xls/*
+*.log
+
 
 # Python-generated files
 __pycache__/

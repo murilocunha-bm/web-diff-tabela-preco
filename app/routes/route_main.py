@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, request
 from os import path, getenv
 #
 from app.models.diferenca_preco.dif_df import main
+import app.controllers.loggers as msgs
 
 
 main_bp = Blueprint(
@@ -21,39 +22,23 @@ def home():
 
 @main_bp.route("/diferencas", methods=["POST"])
 def diferencas():
+    # if request.method == "POST":
+    msgs.log_messages.clear()
+
+    # pegar as escolhas do usuario
     file = request.files["file"]
-    
+    tabela = request.form.get("optradio")
     pasta_xls = getenv('PASTA_XLS')
-    resultado = main(path.join(pasta_xls, file.filename))
+
+    # criar as planilhas de diferencas
+    resultado = main(xls_preco_novo=path.join(pasta_xls, file.filename), codigo_tabela=tabela)
 
     if resultado.empty:
         resultado = None
     else:
         # resultado = df_diff.to_html(index=False, classes="table table-striped")
         resultado = resultado.to_dict(orient="records")
-    
-    return render_template("/tab_preco/index.html", resultado=resultado)
-    
-    # # pega o arquivo enviado
-    # file = request.files["file"]
-
-    # # carrega a planilha enviada
-    # df_novo = pd.read_excel(file)
-
-    # # planilha de referência (poderia vir do banco ou de outro arquivo)
-    # df_ref = pd.DataFrame(
-    #     {
-    #         "Produto": ["Arroz", "Feijão", "Macarrão", "Óleo"],
-    #         "Preço": [10.0, 7.5, 6.0, 8.0]
-    #     }
-    # )
-
-    # # junta pelo nome do produto
-    # df_merge = df_ref.merge(df_novo, on="Produto", suffixes=("_ref", "_novo"))
-
-    # # encontra diferenças de preço
-    # df_diff = df_merge[df_merge["Preço_ref"] != df_merge["Preço_novo"]]
-
+    return render_template("/tab_preco/index.html", resultado=resultado, mensagens=msgs.log_messages)
 
 # @main_bp.route("/nova")
 # def nova():
