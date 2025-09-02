@@ -1,16 +1,28 @@
-.env
 config.py
-*.xls?
 *.log
 
+# ----------------------------------
+# Virtual environments
+# ----------------------------------
+.venv
+.env
 
+# ----------------------------------
+# Regra que ignora todos os arquivos da pasta
+# ----------------------------------
+xls/*
+
+# ----------------------------------
+# mas NEGA ignorar o arquivo .gitkeep
+# ----------------------------------
+!xls/.gitkeep
+
+# ----------------------------------
 # Python-generated files
+# ----------------------------------
 __pycache__/
 *.py[oc]
 build/
 dist/
 wheels/
 *.egg-info
-
-# Virtual environments
-.venv
