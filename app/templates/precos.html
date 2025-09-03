@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 
 
+{% block botoes_navbar %}
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{{ url_for('main.home') }}" class="nav-link" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="{{ url_for('main.precos') }}" class="nav-link active">Preço Novo</a></li>
+        <li class="nav-item"><a href="{{ url_for('main.custos') }}" class="nav-link">Custo SP</a></li>
+        <li class="nav-item"><a href="{{ url_for('main.sobre') }}" class="nav-link">Sobre</a></li>
+    </ul>
+{% endblock botoes_navbar %}
+
+
 {% block content %}
 
     <h4>Diferenças de Hoje</h4>

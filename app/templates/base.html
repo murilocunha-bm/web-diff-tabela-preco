@@ -18,12 +18,10 @@
                     <a href="/" class="fs-3 fw-bold link-body-emphasis text-decoration-none">PreçoHoje</a>
                     <p class="fs-6 d-flex">Sistema de Extração de Novos Preços da Tabela de Vendas</p>
                 </div>
-                <ul class="nav nav-pills">
-                    <li class="nav-item"><a href="{{ url_for('main.home') }}" class="nav-link active" aria-current="page">Home</a></li>
-                    <li class="nav-item"><a href="{{ url_for('main.precos') }}" class="nav-link">Preço Novo</a></li>
-                    <li class="nav-item"><a href="{{ url_for('main.custos') }}" class="nav-link">Custo SP</a></li>
-                    <li class="nav-item"><a href="{{ url_for('main.sobre') }}" class="nav-link">Sobre</a></li>
-                </ul>
+                
+                {% block botoes_navbar %}
+                {% endblock botoes_navbar %}
+
             </header>
         </div>
         
