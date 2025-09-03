@@ -3,6 +3,7 @@ from datetime import datetime
 from os import remove, path
 #
 from app.controllers.loggers import logger
+from app.controllers.util import apagar_arquivos_criados_antes
 from app.models.precos.excel_df import montar_tabela_unica
 from app.models.bd.bd_df import pegar_precos_vigentes_bd
 from constants import SQL_TB_ST01, SQL_TB_SP02, SQL_TB_LITORAL
@@ -10,15 +11,6 @@ from constants import MAPA_TABELA_PRECO_NOVO_ST, MAPA_TABELA_PRECO_NOVO_SP2, MAP
 from constants import XLS_PRECO_NOVO_LITORAL, XLS_PRECO_NOVO_ST, XLS_PRECO_NOVO_SP2, XLS_PRECO_NOVO_SP3
 from constants import XLS_PRECO_VIGENTE_LITORAL, XLS_PRECO_VIGENTE_ST, XLS_PRECO_VIGENTE_SP2, XLS_PRECO_VIGENTE_SP3
 from constants import XLS_DIFERENCA_LITORAL, XLS_DIFERENCA_ST, XLS_DIFERENCA_SP2, XLS_DIFERENCA_SP3
-
-
-def apagar_arquivos_criados_antes(arquivos_apagar):
-    for arquivo in arquivos_apagar:
-        if path.isfile(arquivo):
-            remove(arquivo)
-            logger.info(f'🗑 Arquivo {arquivo} excluído com sucesso')
-        else:
-            logger.info(f'❌ Arquivo {arquivo} não encontrado')
 
 
 def encontrar_diferencas_tabelas_precos(tabela: tuple, preco_novo_filename: str):

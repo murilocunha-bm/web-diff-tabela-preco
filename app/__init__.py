@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 
 def create_app(config_class="config.Config"):
@@ -9,5 +9,11 @@ def create_app(config_class="config.Config"):
     # Importa e registra Blueprints
     from app.routes.route_main import main_bp
     app.register_blueprint(main_bp)
-    
+
+    #
+    # handler para páginas não encontradas
+    @app.errorhandler(404)
+    def page_not_found(e):
+        return render_template("404.html"), 404
+
     return app

@@ -2,8 +2,9 @@ from datetime import datetime
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from os import path, getenv
 #
-from app.models.precos.dif_df import main
 import app.controllers.loggers as msgs
+from app.models.precos.dif_df import main
+from app.models.custos.custo import criar_csv_custos
 
 
 main_bp = Blueprint(
@@ -64,16 +65,18 @@ def diferencas():
 
 @main_bp.route("/custos_resultado", methods=["POST"])
 def custos_resultado():
-    arquivo = request.files.get("file")
+    file = request.files.get("file")
 
-    if not arquivo or arquivo.filename == "":
+    if not file or file.filename == "":
         flash("⚠️ Você precisa selecionar um arquivo antes de continuar.", "warning")
         return redirect(url_for("main.custos"))    
     else:
         # if request.method == "POST":
         msgs.log_messages.clear()
+        pasta_xls = getenv('PASTA_XLS')
+        arquivo_com_caminho = path.join(pasta_xls, file.filename)
 
-        # COLOCAR AQUI AS TRATATIVAS PARA O CSV
+        resultado = criar_csv_custos(xls_filename=arquivo_com_caminho)
 
         if resultado.empty:
             resultado = None
