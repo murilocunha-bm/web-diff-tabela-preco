@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center my-5">
+    <h1 class="fw-bold mb-4">Olá 👋, seja bem-vindo ao <span class="text-primary">PreçoHoje</span>!</h1>
+
+    <p class="fs-5 mb-3">
+        Este sistema ajuda você a:
+    </p>
+
+    <div class="d-flex flex-column align-items-center">
+        <ul class="list-group list-group-flush text-start w-50">
+            <li class="list-group-item bg-transparent text-light border-0">
+                ✅ Carregar a planilha de preços da sua tabela de vendas.
+            </li>
+            <li class="list-group-item bg-transparent text-light border-0">
+                ✅ Comparar os valores com a planilha anterior.
+            </li>
+            <li class="list-group-item bg-transparent text-light border-0">
+                ✅ Identificar diferenças de forma simples e organizada.
+            </li>
+        </ul>
+    </div>
+
+    <p class="fs-6 mt-4">
+        Assim, você ganha <strong>tempo</strong> e reduz <strong>erros</strong> no acompanhamento de preços.
+    </p>
+
+    <a href="{{ url_for('main.home') }}" class="btn btn-primary btn-lg mt-3">
+        🚀 Começar agora
+    </a>
+</div>
+{% endblock %}

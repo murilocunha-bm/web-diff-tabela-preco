@@ -6,29 +6,17 @@
     <h4>Diferenças de Hoje</h4>
     <hr>
 
-    <form id="formPlanilha" action="/diferencas" method="POST" enctype="multipart/form-data">
+    <form id="formPlanilha" action="/custos_resultado" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
-            <label for="formFile" class="form-label">Planilha de preços nova</label>
-        
+            <!-- Cabecalho do Form -->
+            <label for="formFile" class="form-label">Extração dos custos em SP</label>
+            
+            <!-- Escolher ficheiro com botao apagar -->
             <div class="input-group">
                 <input class="form-control" type="file" id="formFile" name="file" accept=".xlsx,.xls">
                 <button class="btn btn-outline-secondary" type="reset">Apagar</button>
             </div>
-        
-            <div class="form-check form-check-inline mt-4">
-                <label class="form-check-label" for="radioST">Tabela ST</label>
-                <input class="form-check-input" type="radio" name="optradio" id="radioST" value="st01" checked>
-            </div>
 
-            <div class="form-check form-check-inline mt-4">
-                <label class="form-check-label" for="radioSP">Tabela SP</label>
-                <input class="form-check-input" type="radio" name="optradio" id="radioSP" value="sp02">
-            </div>
-
-            <div class="form-check form-check-inline mt-4">
-                <label class="form-check-label" for="radioLitoral">Tabela Litoral</label>
-                <input class="form-check-input" type="radio" name="optradio" id="radioLitoral" value="st15">
-            </div>
         </div>
         
         <!-- Botão que dispara popover se nenhum arquivo selecionado -->

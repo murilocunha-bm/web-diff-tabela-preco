@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-5">
+
+    <!-- Hero Section -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">Sistema <span class="text-primary">PreçoHoje</span></h1>
+        <p class="fs-5 mt-3">
+            Uma plataforma desenvolvida para facilitar a análise e atualização de preços da sua tabela de vendas.
+        </p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-light shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">📂 Importação</h5>
+                    <p class="card-text">
+                        Carregue suas planilhas de preços diretamente no sistema com poucos cliques.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-light shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">🔍 Comparação</h5>
+                    <p class="card-text">
+                        Compare tabelas antigas e novas para identificar diferenças de valores.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark text-light shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">📊 Relatórios</h5>
+                    <p class="card-text">
+                        Obtenha relatórios organizados para apoiar a tomada de decisão da sua equipe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -- >
+    <div class="text-center mt-5">
+        <a href="{{ url_for('main.home') }}" class="btn btn-primary btn-lg px-5">
+            🚀 Acessar o Sistema
+        </a>
+    </div>
+    -->
+
+</div>
+
+{% endblock %}

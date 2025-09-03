@@ -3,7 +3,7 @@ from datetime import datetime
 from os import remove, path
 #
 from app.controllers.loggers import logger
-from app.models.diferenca_preco.excel_df import montar_tabela_unica
+from app.models.precos.excel_df import montar_tabela_unica
 from app.models.bd.bd_df import pegar_precos_vigentes_bd
 from constants import SQL_TB_ST01, SQL_TB_SP02, SQL_TB_LITORAL
 from constants import MAPA_TABELA_PRECO_NOVO_ST, MAPA_TABELA_PRECO_NOVO_SP2, MAPA_TABELA_PRECO_NOVO_LITORAL
