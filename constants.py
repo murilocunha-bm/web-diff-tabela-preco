@@ -2,6 +2,9 @@ from os import path, getenv
 
 
 pasta_xls = getenv('PASTA_XLS')
+if not pasta_xls:
+    print(f'\nArquivo .env sem definição da variável "PASTA_XLS"')
+    exit(1)
 
 # ------------
 XLS_PRECO_NOVO_LITORAL = path.join(pasta_xls, 'preco_novo_litoral.xlsx')
