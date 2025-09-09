@@ -58,7 +58,7 @@ def pegar_precos_vigentes_bd(sql_tabela_precos, nome_xlsx_destino):
         
         if not df.empty:
             validade_inicial = df.iloc[0, 3]    # primeira linha e coluna ValidadeInicial
-            logger.info(f'👉🏻 Validade inicial da tabela {datetime.strftime(validade_inicial, '%d/%m/%Y')}')
+            logger.info(f'👉 Validade inicial da tabela {datetime.strftime(validade_inicial, '%d/%m/%Y')}')
             df.to_excel(nome_xlsx_destino, index=False)
             logger.info(f'📂 Preco vigente gravado em: {nome_xlsx_destino}')
         else:

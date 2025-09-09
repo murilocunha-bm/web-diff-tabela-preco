@@ -3,6 +3,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for
 from os import path, getenv
 #
 import app.controllers.loggers as msgs
+from app.controllers.loggers import logger
 from app.models.precos.dif_df import main
 from app.models.custos.custo import criar_csv_custos
 
@@ -51,9 +52,14 @@ def diferencas():
         file = request.files["file"]
         tabela = request.form.get("optradio")
         pasta_xls = getenv('PASTA_XLS')
+        arquivo_com_caminho = path.join(pasta_xls, file.filename)
+
+        # gravar o arquivo selecionado na pasta padrao do servidor
+        file.save(arquivo_com_caminho)
+        logger.info(f'📥 Arquivo gravado com sucesso: {file.filename}')
 
         # criar as planilhas de diferencas
-        resultado = main(xls_preco_novo=path.join(pasta_xls, file.filename), codigo_tabela=tabela)
+        resultado = main(xls_preco_novo=arquivo_com_caminho, codigo_tabela=tabela)
 
         if resultado.empty:
             resultado = None
@@ -75,6 +81,9 @@ def custos_resultado():
         msgs.log_messages.clear()
         pasta_xls = getenv('PASTA_XLS')
         arquivo_com_caminho = path.join(pasta_xls, file.filename)
+
+        file.save(arquivo_com_caminho)
+        logger.info(f'📥 Arquivo gravado com sucesso: {file.filename}')
 
         resultado = criar_csv_custos(xls_filename=arquivo_com_caminho)
 
