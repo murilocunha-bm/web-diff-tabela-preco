@@ -12,7 +12,7 @@ XLS_PRECO_NOVO_LITORAL = path.join(pasta_xls, 'preco_novo_litoral.xlsx')
 XLS_PRECO_NOVO_ST = path.join(pasta_xls, 'preco_novo_st.xlsx')
 XLS_PRECO_NOVO_SP2 = path.join(pasta_xls, 'preco_novo_sp2.xlsx')
 XLS_PRECO_NOVO_SP3 = path.join(pasta_xls, 'preco_novo_sp3.xlsx')
-CSV_CUSTOS = path.join(pasta_xls, 'custos.csv')
+CSV_CUSTOS = path.join(pasta_xls, 'custos_sp.csv')
 # ------------
 XLS_PRECO_VIGENTE_LITORAL = path.join(pasta_xls, 'preco_vigente_litoral.xlsx')
 XLS_PRECO_VIGENTE_ST = path.join(pasta_xls, 'preco_vigente_st.xlsx')
