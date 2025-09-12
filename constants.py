@@ -1,11 +1,12 @@
 from os import path, getenv
 
 
-pasta_xls = getenv('PASTA_XLS')
+BASE_DIR = path.dirname(path.abspath(__file__))  # diretório raiz do projeto
+
+pasta_xls = path.join(BASE_DIR, getenv('PASTA_XLS'))
 if not pasta_xls:
     print(f'\nArquivo .env sem definição da variável "PASTA_XLS"')
     exit(1)
-
 # ------------
 XLS_PRECO_NOVO_LITORAL = path.join(pasta_xls, 'preco_novo_litoral.xlsx')
 XLS_PRECO_NOVO_ST = path.join(pasta_xls, 'preco_novo_st.xlsx')

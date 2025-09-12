@@ -1,8 +1,9 @@
 from datetime import datetime
-from flask import Blueprint, render_template, request, flash, redirect, url_for
+from flask import Blueprint, render_template, request, flash, redirect, url_for, send_file
 from os import path, getenv
 #
 import app.controllers.loggers as msgs
+from constants import XLS_PRECO_NOVO_LITORAL, XLS_PRECO_NOVO_ST, XLS_PRECO_NOVO_SP2, CSV_CUSTOS
 from app.controllers.loggers import logger
 from app.models.precos.dif_df import main
 from app.models.custos.custo import criar_csv_custos
@@ -66,7 +67,7 @@ def diferencas():
         else:
             # resultado = df_diff.to_html(index=False, classes="table table-striped")
             resultado = resultado.to_dict(orient="records")
-        return render_template("precos_resultado.html", resultado=resultado, mensagens=msgs.log_messages)
+        return render_template("precos_resultado.html", tabela=tabela, resultado=resultado, mensagens=msgs.log_messages)
 
 
 @main_bp.route("/custos_resultado", methods=["POST"])
@@ -93,6 +94,30 @@ def custos_resultado():
             # resultado = df_diff.to_html(index=False, classes="table table-striped")
             resultado = resultado.to_dict(orient="records")
         return render_template("custos_resultado.html", resultado=resultado, mensagens=msgs.log_messages)
+
+
+@main_bp.route("/download_diferencas/<tabela>", methods=["GET"])
+def download_diferencas(tabela):
+    # Caminho do arquivo no servidor
+    arquivo = {
+        'st01': XLS_PRECO_NOVO_ST,
+        'sp02': XLS_PRECO_NOVO_SP2,
+        'st15': XLS_PRECO_NOVO_LITORAL,
+    }
+    return send_file(
+        arquivo[tabela],
+        as_attachment=True,                             # força o download
+        download_name=path.basename(arquivo[tabela])    # nome sugerido ao usuário
+    )
+
+
+@main_bp.route("/download_custos", methods=["GET"])
+def download_custos():
+    return send_file(
+        CSV_CUSTOS,
+        as_attachment=True,                             # força o download
+        download_name=path.basename(CSV_CUSTOS)         # nome sugerido ao usuário
+    )
 
 
 # @main_bp.route("/nova")
