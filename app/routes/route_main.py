@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for,
 from os import path, getenv
 #
 import app.controllers.loggers as msgs
-from constants import XLS_PRECO_NOVO_LITORAL, XLS_PRECO_NOVO_ST, XLS_PRECO_NOVO_SP2, CSV_CUSTOS
+from constants import XLS_DIFERENCA_LITORAL, XLS_DIFERENCA_ST, XLS_DIFERENCA_SP2, CSV_CUSTOS
 from app.controllers.loggers import logger
 from app.models.precos.dif_df import main
 from app.models.custos.custo import criar_csv_custos
@@ -100,9 +100,9 @@ def custos_resultado():
 def download_diferencas(tabela):
     # Caminho do arquivo no servidor
     arquivo = {
-        'st01': XLS_PRECO_NOVO_ST,
-        'sp02': XLS_PRECO_NOVO_SP2,
-        'st15': XLS_PRECO_NOVO_LITORAL,
+        'st01': XLS_DIFERENCA_ST,
+        'sp02': XLS_DIFERENCA_SP2,
+        'st15': XLS_DIFERENCA_LITORAL,
     }
     return send_file(
         arquivo[tabela],
