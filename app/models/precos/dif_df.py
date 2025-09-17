@@ -58,13 +58,19 @@ def encontrar_diferencas_precos(
         df_antigo, 
         df_novo, 
         on=col_ligacao, 
-        how='inner', 
+        how='right', 
         suffixes=('_novo', '_vigente')
     )
 
-    # Filtra apenas onde os valores de R$ são diferentes (considerando NaN)
+    # Filtragem basica
+    #
+    # filtro = (df["A"] != df["B"]) & (df["C"].notna())
+    # df_filtrado = df[filtro]
+
+    # Filtra apenas onde os valores de R$ são diferentes (desconsiderando NaN)
     df_diferentes = df_diferenca_precos[
-        df_diferenca_precos[col_diferenca + '_novo'] != df_diferenca_precos[col_diferenca + '_vigente']
+        (df_diferenca_precos[col_diferenca + '_novo'] != df_diferenca_precos[col_diferenca + '_vigente']) &
+        (df_diferenca_precos['R$_novo'].notna())
     ]
     # # Para considerar NaN como diferença
     # df_diferentes = df_diferenca_precos[
@@ -81,6 +87,9 @@ def encontrar_diferencas_precos(
     ]
     logger.info(f'Número de diferenças encontradas: {len(df_diferentes)}')
     
+    # Ordenar pelo id em ordem crescente
+    df_diferentes = df_diferentes.sort_values(by="Codigo", ascending=True)
+
     # Seleciona apenas as colunas desejadas do DataFrame original. Copy cria uma cópia independente
     df_resultado = df_diferentes[col_desejadas].copy()
 
