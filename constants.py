@@ -62,19 +62,19 @@ MAPA_TABELA_PRECO_NOVO_ST = [
         'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
         'linhas_pular': 5,                                                  # inicia em ZERO
         'colunas_ler': 'C:G',
-        'linhas_ler': 46
+        'linhas_ler': 47
     },
     {
         'nome_sheet': 'Tabela Base',
         'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 53,                                                 # inicia em ZERO
+        'linhas_pular': 54,                                                 # inicia em ZERO
         'colunas_ler': 'C:G',
         'linhas_ler': 10
     },
     {
         'nome_sheet': 'Tabela Base',
         'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 65,                                                 # inicia em ZERO
+        'linhas_pular': 66,                                                 # inicia em ZERO
         'colunas_ler': 'C:G',
         'linhas_ler': 4
     },
