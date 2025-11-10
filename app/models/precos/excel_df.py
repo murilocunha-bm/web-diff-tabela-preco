@@ -27,15 +27,16 @@ def carregar_tabela(
 
         df.columns = nome_colunas[0]
 
-        df = df.sort_values('Codigo')
-        
         # df = df.drop(['del01', 'del02', 'del03'], axis=1)         # apagar coluna pelo nome
         df = df[['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde']]  # extrair apenas as colunas q interessa
 
-        df = df[ ( (df['Qtde'] > 0) | (df['Qtde'].isna()) ) ]       # nao esqueca dos parenteses
-        df = df[ (df['R$'] != 0) ]                                  # nao esquecer os parenteses qdo filtrar
+        df = df.dropna(subset=['Codigo'])
+        df = df[ ( (df['Qtde'] > 0) ) ]     # nao esqueca dos parenteses
+        # df = df[ ( df['Codigo'].notna() & (df['Codigo'].astype(str).str.strip() != '') ) ]  # Codigo nao vazio E se apagar todos os espacos em branco, nao pode ser vazio
 
-        df = df.sort_values(by='Codigo', ascending=True)            # Ordena pela coluna
+        # df['R$'] = pd.to_numeric(df['R$'], errors='coerce')
+        df = df[ ( (df['R$'] != 0) ) ]     # nao esqueca dos parenteses
+
 
         df.dropna(subset=['Codigo', 'Produtos', 'R$'], axis=0, inplace=True)    # apaga linhas q o codigo ou produtos esteja em branco 
         # df.dropna(how='all', axis=1, inplace=True)                            # apaga colunas em branco
@@ -43,9 +44,6 @@ def carregar_tabela(
         for col in ['PesoCaixa']:                                               # deixando somente numero nas colunas específicas
             df[col] = df[col].astype(str).str.extract(r'(\d+(?:[.,]\d+)?)')[0]  # o ZERO final é necessario pq o EXTRACT retorna um dataframe
             df[col] = df[col].str.replace(',', '.').astype(float)
-
-        for col in ['R$']:                        
-            df[col] = df[col].round(2)      # arredondar em duas casas decimais
 
         df = df.astype(
             {
@@ -57,6 +55,11 @@ def carregar_tabela(
             }
         )
 
+        for col in ['R$']:                        
+            df[col] = df[col].round(2)      # arredondar em duas casas decimais
+
+        df = df.sort_values(by='Codigo', ascending=True)            # Ordena pela coluna
+ 
         return df
     
     except Exception as e:

@@ -62,9 +62,8 @@ def criar_csv_custos(xls_filename: str):
 
     if ('df_total' in locals()) and not df_total.empty:
         logger.info(f'Número de linhas do CSV: {len(df_total)}')
-        csv_name = path.join(getenv('PASTA_XLS'), 'custo_sp.csv')
-        df_total.to_csv(csv_name, sep=',', index=False)
-        logger.info(f'💲 CSV de custos gravados com sucesso: {csv_name}')
+        df_total.to_csv(CSV_CUSTOS, sep=',', index=False)
+        logger.info(f'💲 CSV de custos gravados com sucesso: {CSV_CUSTOS}')
         return df_total
     else:
         logger.error(f'❌ CSV de custos vazio')
