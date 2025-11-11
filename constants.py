@@ -61,79 +61,79 @@ MAPA_TABELA_PRECO_NOVO_ST = [
         'nome_sheet': 'Tabela Base',
         'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
         'linhas_pular': 5,                                                  # inicia em ZERO
-        'colunas_ler': 'C:G',
-        'linhas_ler': 47
+        'colunas_ler': 'C:F',
+        'linhas_ler': 200
     },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 54,                                                 # inicia em ZERO
-        'colunas_ler': 'C:G',
-        'linhas_ler': 10
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 66,                                                 # inicia em ZERO
-        'colunas_ler': 'C:G',
-        'linhas_ler': 4
-    },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 54,                                                 # inicia em ZERO
+    #     'colunas_ler': 'C:F',
+    #     'linhas_ler': 10
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 66,                                                 # inicia em ZERO
+    #     'colunas_ler': 'C:F',
+    #     'linhas_ler': 4
+    # },
     {
         'nome_sheet': 'Tabela Base',
         'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
         'linhas_pular': 5,                                          # inicia em ZERO
         'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 8
+        'linhas_ler': 200
     },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 15,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 6
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 23,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 17
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 42,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 3
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 47,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 6
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 55,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 6
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 63,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 3
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 68,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 4
-    }
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 15,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 6
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 23,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 17
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 42,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 3
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 47,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 6
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 55,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 6
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 63,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 3
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 68,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 4
+    # }
 ]
 
 MAPA_TABELA_PRECO_NOVO_SP2 = [
@@ -238,78 +238,78 @@ MAPA_TABELA_PRECO_NOVO_LITORAL = [
         'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
         'linhas_pular': 5,                                          # inicia em ZERO
         'colunas_ler': 'C:F',
-        'linhas_ler': 47
+        'linhas_ler': 200
     },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 54,                                                 # inicia em ZERO
-        'colunas_ler': 'C:F',
-        'linhas_ler': 10
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 66,                                                 # inicia em ZERO
-        'colunas_ler': 'C:F',
-        'linhas_ler': 4
-    },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 54,                                                 # inicia em ZERO
+    #     'colunas_ler': 'C:F',
+    #     'linhas_ler': 10
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 66,                                                 # inicia em ZERO
+    #     'colunas_ler': 'C:F',
+    #     'linhas_ler': 4
+    # },
     {
         'nome_sheet': 'Tabela Base',
         'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
         'linhas_pular': 5,                                          # inicia em ZERO
         'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 6
+        'linhas_ler': 200
     },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 13,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 6
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 21,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 17
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 40,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 3
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 45,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 6
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 53,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 6
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 61,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 3
-    },
-    {
-        'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 66,                                         # inicia em ZERO
-        'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
-        'linhas_ler': 4
-    }
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 15,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 6
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 23,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 17
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 42,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 3
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 47,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 6
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 55,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 6
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 63,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 3
+    # },
+    # {
+    #     'nome_sheet': 'Tabela Base',
+    #     'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
+    #     'linhas_pular': 68,                                         # inicia em ZERO
+    #     'colunas_ler': 'H:K',                                       # coluna K nao existe na planilha (os dados terminam antes, entao, o excel ignora as outras colunas)
+    #     'linhas_ler': 4
+    # }
 ]
 
 # Tabela de precos do Litoral

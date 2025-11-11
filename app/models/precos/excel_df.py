@@ -24,25 +24,20 @@ def carregar_tabela(
         # Para nao causar erro ou ter q criar uma nova funcao, decidiu-se criar a coluna Qtde na mao!
         if len(df.columns) < len(nome_colunas[0]):
             df['Qtde'] = 1
+        df.columns = nome_colunas[0]                                                        # dar nome para as colunas (nomes vem de constants.py)
+        df = df[['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde']]                          # pegar apenas as colunas q interessa
+        
+        df['LinhasExcluir'] = pd.to_numeric(df['Codigo'], errors='coerce')                  # transforma o conteudo da coluna em numeric, se nao conseguir, preencha como NAN
+        df = df.dropna(subset=['LinhasExcluir'])                                            # apagar as linhas com conteudo NAN
+        df = df[ ( (df['Qtde'] > 0) ) ]                                                     # nao esqueca dos parenteses
+        df = df[ ( df['Codigo'].notna() & (df['Codigo'].astype(str).str.strip() != '') ) ]  # Codigo nao vazio E se apagar todos os espacos em branco, nao pode ser vazio
+        df = df[ ( (df['R$'] > 0) ) ]                                                       # nao esqueca dos parenteses
+        # df = df.drop(['del01', 'del02', 'del03'], axis=1)                                 # apagar colunas pelo nome
+        # df.dropna(subset=['Codigo', 'Produtos', 'R$'], axis=0, inplace=True)              # apaga linhas q o codigo ou produtos esteja em branco 
+        # df.dropna(how='all', axis=1, inplace=True)                                        # apaga colunas em branco
 
-        df.columns = nome_colunas[0]
-
-        # df = df.drop(['del01', 'del02', 'del03'], axis=1)         # apagar coluna pelo nome
-        df = df[['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde']]  # extrair apenas as colunas q interessa
-
-        df = df.dropna(subset=['Codigo'])
-        df = df[ ( (df['Qtde'] > 0) ) ]     # nao esqueca dos parenteses
-        # df = df[ ( df['Codigo'].notna() & (df['Codigo'].astype(str).str.strip() != '') ) ]  # Codigo nao vazio E se apagar todos os espacos em branco, nao pode ser vazio
-
-        # df['R$'] = pd.to_numeric(df['R$'], errors='coerce')
-        df = df[ ( (df['R$'] != 0) ) ]     # nao esqueca dos parenteses
-
-
-        df.dropna(subset=['Codigo', 'Produtos', 'R$'], axis=0, inplace=True)    # apaga linhas q o codigo ou produtos esteja em branco 
-        # df.dropna(how='all', axis=1, inplace=True)                            # apaga colunas em branco
-
-        for col in ['PesoCaixa']:                                               # deixando somente numero nas colunas específicas
-            df[col] = df[col].astype(str).str.extract(r'(\d+(?:[.,]\d+)?)')[0]  # o ZERO final é necessario pq o EXTRACT retorna um dataframe
+        for col in ['PesoCaixa']:                                                           # deixando somente numero nas colunas específicas
+            df[col] = df[col].astype(str).str.extract(r'(\d+(?:[.,]\d+)?)')[0]              # o ZERO final é necessario pq o EXTRACT retorna um dataframe
             df[col] = df[col].str.replace(',', '.').astype(float)
 
         df = df.astype(

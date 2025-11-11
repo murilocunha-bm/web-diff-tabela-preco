@@ -69,8 +69,8 @@ def encontrar_diferencas_precos(
 
     # Filtra apenas onde os valores de R$ são diferentes (desconsiderando NaN)
     df_diferentes = df_diferenca_precos[
-        (df_diferenca_precos[col_diferenca + '_novo'] != df_diferenca_precos[col_diferenca + '_vigente']) &
-        (df_diferenca_precos['R$_novo'].notna())
+        (df_diferenca_precos[col_diferenca + '_novo'] != df_diferenca_precos[col_diferenca + '_vigente']) 
+        # & (df_diferenca_precos['R$_vigente'].notna())
     ]
     # # Para considerar NaN como diferença
     # df_diferentes = df_diferenca_precos[
