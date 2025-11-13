@@ -3,6 +3,16 @@ from datetime import datetime, date
 from os import path
 
 
+def padronizar_colunas(df_varias_colunas: pd.DataFrame, col_final: list) -> pd.DataFrame:
+    # Para ST, Qtde nao é usada, entao, nao vem essa informacao.
+    # Para SP, Qtde é valida mesmo vazia (escondida dos vendedores). Zero deve ser descartado
+    if len(df_varias_colunas.columns) < len(col_final):
+        df_varias_colunas['Qtde'] = 1
+    df_varias_colunas.columns = col_final                                                        # dar nome para as colunas (nomes vem de constants.py)
+    df_varias_colunas = df_varias_colunas[['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde']]                          # pegar apenas as colunas q interessa
+    return df_varias_colunas
+
+
 def carregar_tabela(
         xlsx_preco_novo:str,
         xlsx_sheet: str,
@@ -20,16 +30,13 @@ def carregar_tabela(
             nrows = linhas_ler,                 # Lê apenas as próximas linhas especificadas
         )
         
-        # Na tabela de Sertaozinho a Qtde nao é usada, entao, na planilha essa informacao nao vem.
-        # Para nao causar erro ou ter q criar uma nova funcao, decidiu-se criar a coluna Qtde na mao!
-        if len(df.columns) < len(nome_colunas[0]):
-            df['Qtde'] = 1
-        df.columns = nome_colunas[0]                                                        # dar nome para as colunas (nomes vem de constants.py)
-        df = df[['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'Qtde']]                          # pegar apenas as colunas q interessa
-        
-        df['LinhasExcluir'] = pd.to_numeric(df['Codigo'], errors='coerce')                  # transforma o conteudo da coluna em numeric, se nao conseguir, preencha como NAN
+        # copy() é necessario pq df é apenas uma view sobre outro_df (retornado pela funcao).
+        # Então o pandas te avisa que talvez você esteja alterando um pedaço temporário.
+        df = padronizar_colunas(df_varias_colunas=df, col_final=nome_colunas[0]).copy()
+
+        df['LinhasExcluir'] = pd.to_numeric(df['Codigo'], errors='coerce')                  # valida coluna em numeric, se nao conseguir, preencha com NAN
         df = df.dropna(subset=['LinhasExcluir'])                                            # apagar as linhas com conteudo NAN
-        df = df[ ( (df['Qtde'] > 0) ) ]                                                     # nao esqueca dos parenteses
+        df = df[ ( (df['Qtde'] > 0) | df['Qtde'].isna() ) ]                                 # Para SP, qtde vazio é valido. Nao esqueca dos parenteses
         df = df[ ( df['Codigo'].notna() & (df['Codigo'].astype(str).str.strip() != '') ) ]  # Codigo nao vazio E se apagar todos os espacos em branco, nao pode ser vazio
         df = df[ ( (df['R$'] > 0) ) ]                                                       # nao esqueca dos parenteses
         # df = df.drop(['del01', 'del02', 'del03'], axis=1)                                 # apagar colunas pelo nome
