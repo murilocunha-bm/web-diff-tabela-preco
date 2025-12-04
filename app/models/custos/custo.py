@@ -29,13 +29,17 @@ def criar_csv_custos(xls_filename: str):
                 
                 df.columns = nome_colunas[0]
 
+                df = df.copy()
+                df['LinhasExcluir'] = pd.to_numeric(df['Codigo'], errors='coerce')                  # valida coluna em numeric, se nao conseguir, preencha com NAN
+                df = df.dropna(subset=['LinhasExcluir'])                                            # apagar as linhas com conteudo NAN
+
                 df = df.sort_values('Codigo')
 
                 df = df[ ['Codigo', 'Custo'] ]
                 df.dropna(how='all', axis=0, inplace=True)  # apaga linhas em branco
                 df = df[ df['Custo'] > 0 ]
             
-                df['Custo'] = df['Custo'].round(2)
+                df.loc[:, 'Custo'] = df['Custo'].round(2)
                 
                 df.insert(0, "Data", date.today().strftime('%d/%m/%Y'))
 
@@ -45,7 +49,10 @@ def criar_csv_custos(xls_filename: str):
                         'Custo': float,
                     }
                 )
-                
+
+                # o numero de linhas no CSV pode ser maior que o visualizado no Excel.
+                # isso se deve aos filtros aplicados das colunas do Excel. Aqui, apenas
+                # filtro as linhas com CUSTO > 0
                 if 'df_total' in locals():
                     df_total = pd.concat([df_total, df], ignore_index=True)
                 else:
