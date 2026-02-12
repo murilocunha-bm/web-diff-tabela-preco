@@ -139,10 +139,10 @@ MAPA_TABELA_PRECO_NOVO_ST = [
 MAPA_TABELA_PRECO_NOVO_SP2 = [
     {
         'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'del01', 'del02', 'Qtde'],  # colocar as colunas a apagar como: del01, del02, del03...
-        'linhas_pular': 10,                                         # inicia em ZERO
-        'colunas_ler': 'B:H',
-        'linhas_ler': 300
+        'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'R$', 'del01', 'Qtde'],     # colocar as colunas a apagar como: del01, del02, del03...
+        'linhas_pular': 10,     # inicia em ZERO
+        'colunas_ler': 'B:G',   # se alterar aqui, nao esqueca de alterar no nome das colunas
+        'linhas_ler': 500
     },
 ]
 
@@ -183,7 +183,7 @@ MAPA_TABELA_PRECO_NOVO_SP3 = [
         'nome_sheet': 'Tabela Base',
         'nome_colunas': ['Codigo', 'Produtos', 'PesoCaixa', 'del01', 'R$', 'del01', 'Qtde'],    # colocar as colunas a apagar como: del01, del02, del03...
         'linhas_pular': 10,                                                                     # inicia em ZERO
-        'colunas_ler': 'B:H',
+        'colunas_ler': 'B:H',   # se alterar aqui, nao esqueca de alterar no nome das colunas
         'linhas_ler': 300
     },
 ]
@@ -223,10 +223,10 @@ order by a.codpro"""
 MAPA_TABELA_CUSTOS_SP = [
     {
         'nome_sheet': 'Tabela Base',
-        'nome_colunas': ['Codigo', 'del01', 'del02', 'del03', 'del04', 'del05', 'del06', 'del07', 'del08', 'Custo'],
+        'nome_colunas': ['Codigo', 'del01', 'del02', 'del03', 'del04', 'del05', 'del06', 'del07', 'Custo'],
         'linhas_pular': 10,         # inicia em ZERO - cuidado: num_linha_excel - 1
-        'colunas_ler': 'B:K',
-        'linhas_ler': 300           # comeca a ler na linha abaixo ao de: "linhas_pular"
+        'colunas_ler': 'B:J',       # se alterar aqui, nao esqueca de alterar no nome das colunas
+        'linhas_ler': 500           # comeca a ler na linha abaixo ao de: "linhas_pular"
     },
 
 ]
